@@ -6,7 +6,11 @@ const commentType : { [key:string]: string} = {
 	js: '//',
 	py: '#',
 	cpp: '//',
-	ts: '//'
+	ts: '//',
+	java: '//',
+	c: '//'
+	
+	
 };
 
 const commentStarts = [
@@ -44,15 +48,6 @@ const postComments = [
 	' is the secret to the meaning of life'
 ];
 
-const brackets = [
-	'(',
-	')',
-	'{',
-	'}',
-	'[',
-	']'
-];
-
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -74,20 +69,11 @@ export function activate(context: vscode.ExtensionContext) {
 	const bananaRightDisp = vscode.commands.registerCommand('essentialextension.bananaRight', () => {
 		banana("right");
 	});
-	const brakeitDisp = vscode.commands.registerCommand('essentialextension.brakeit', () => {
-		brakeit();
-	});
-	const deleteDisp = vscode.commands.registerCommand('essentialextension.delete', () => {
-		del();
-	});
-
 	context.subscriptions.push(reminderDisp);
 	context.subscriptions.push(bananaUpDisp);
 	context.subscriptions.push(bananaDownDisp);
 	context.subscriptions.push(bananaLeftDisp);
 	context.subscriptions.push(bananaRightDisp);
-	context.subscriptions.push(brakeitDisp);
-	context.subscriptions.push(deleteDisp);
 }
 
 function reminder() {
@@ -128,17 +114,6 @@ function banana(direction:string) {
 	}
 }
 
-function brakeit() {
-	vscode.commands.executeCommand("type", { text: brackets[Math.floor(Math.random() * 6)] });
-}
-
-function del() {
-	const editor = vscode.window.activeTextEditor!;
-	let deletionAmount = Math.floor(Math.random() * editor.document.getText().length + 1);
-	for(let i = 0; i < deletionAmount; i++){
-		vscode.commands.executeCommand("deleteLeft");
-	}
-}
 
 // this method is called when your extension is deactivated
 export function deactivate() { }
