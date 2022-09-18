@@ -19,6 +19,7 @@
         "command": "essentialextension.reminder",
         "title": "Helps reminds you the purpose of a line"
       },
+
       {
         "command": "essentialextension.bananaUp",
         "title": "Banana"
@@ -34,6 +35,16 @@
       {
         "command": "essentialextension.bananaRight",
         "title": "Banana"
+      },
+
+      {
+        "command": "essentialextension.brakeit",
+        "title": "Helps your brackets"
+      },
+
+      {
+        "command": "essentialextension.delete",
+        "title": "Helps your brackets"
       }
     ],
     "keybindings": [
@@ -61,6 +72,28 @@
       {
         "command": "essentialextension.bananaRight",
         "key": "right",
+        "when": "editorTextFocus"
+      },
+
+      {
+        "command": "essentialextension.brakeit",
+        "key": "[",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "essentialextension.brakeit",
+        "key": "]",
+        "when": "editorTextFocus"
+      },
+
+      {
+        "command": "essentialextension.delete",
+        "key": "delete",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "essentialextension.delete",
+        "key": "backspace",
         "when": "editorTextFocus"
       }
 
