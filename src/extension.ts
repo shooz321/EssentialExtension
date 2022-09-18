@@ -6,7 +6,10 @@ const commentType : { [key:string]: string} = {
 	js: '//',
 	py: '#',
 	cpp: '//',
-	ts: '//'
+	ts: '//',
+	java: '//',
+	c: '//'
+	
 };
 
 const commentStarts = [
