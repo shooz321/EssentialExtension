@@ -20,8 +20,20 @@
         "title": "Helps reminds you the purpose of a line"
       },
       {
-        "command": "essentialextension.alphabet",
-        "title": "Helps improve your typing"
+        "command": "essentialextension.bananaUp",
+        "title": "Banana"
+      },
+      {
+        "command": "essentialextension.bananaDown",
+        "title": "Banana"
+      },
+      {
+        "command": "essentialextension.bananaLeft",
+        "title": "Banana"
+      },
+      {
+        "command": "essentialextension.bananaRight",
+        "title": "Banana"
       }
     ],
     "keybindings": [
@@ -30,11 +42,28 @@
         "key": "enter",
         "when": "editorTextFocus"
       },
+
       {
-        "command": "essentialextension.alphabet",
-        "key": "a",
+        "command": "essentialextension.bananaUp",
+        "key": "up",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "essentialextension.bananaDown",
+        "key": "down",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "essentialextension.bananaLeft",
+        "key": "left",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "essentialextension.bananaRight",
+        "key": "right",
         "when": "editorTextFocus"
       }
+
     ]
   },
   "scripts": {

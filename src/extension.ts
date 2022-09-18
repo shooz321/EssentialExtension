@@ -5,7 +5,8 @@ import * as vscode from 'vscode';
 const commentType : { [key:string]: string} = {
 	js: '//',
 	py: '#',
-	cpp: "//"
+	cpp: '//',
+	ts: '//'
 };
 
 const commentStarts = [
@@ -52,7 +53,23 @@ export function activate(context: vscode.ExtensionContext) {
 	const reminderDisp = vscode.commands.registerCommand('essentialextension.reminder', () => {
 		reminder();
 	});
+	const bananaUpDisp = vscode.commands.registerCommand('essentialextension.bananaUp', () => {
+		banana("up");
+	});
+	const bananaDownDisp = vscode.commands.registerCommand('essentialextension.bananaDown', () => {
+		banana("down");
+	});
+	const bananaLeftDisp = vscode.commands.registerCommand('essentialextension.bananaLeft', () => {
+		banana("left");
+	});
+	const bananaRightDisp = vscode.commands.registerCommand('essentialextension.bananaRight', () => {
+		banana("right");
+	});
 	context.subscriptions.push(reminderDisp);
+	context.subscriptions.push(bananaUpDisp);
+	context.subscriptions.push(bananaDownDisp);
+	context.subscriptions.push(bananaLeftDisp);
+	context.subscriptions.push(bananaRightDisp);
 }
 
 function reminder() {
@@ -76,6 +93,22 @@ function reminder() {
 	}
 }
 
+function banana(direction:string) {
+	const editor = vscode.window.activeTextEditor!;
+	if(Math.floor(Math.random() * 4) === 0){
+		let index = editor.selection.active.line;
+		let totalLines = editor.document.getText().split(/\r\n|\r|\n/).length;		
+		let movement = Math.floor(Math.random()*totalLines) - index;
+		console.log(movement);
+		vscode.commands.executeCommand("cursorMove",{to: 'down', by: 'line', value: movement});
+		let file = editor.document.fileName.split(".");
+		let fileType = file[file.length - 1];
+		let funny = commentType[fileType] + "You slipped on a banana";
+		vscode.commands.executeCommand("type", { text: funny });
+	}else{
+		vscode.commands.executeCommand("cursorMove",{to: direction});
+	}
+}
 
 // this method is called when your extension is deactivated
 export function deactivate() { }
