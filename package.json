@@ -18,12 +18,21 @@
       {
         "command": "essentialextension.reminder",
         "title": "Helps reminds you the purpose of a line"
+      },
+      {
+        "command": "essentialextension.alphabet",
+        "title": "Helps improve your typing"
       }
     ],
     "keybindings": [
       {
         "command": "essentialextension.reminder",
         "key": "enter",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "essentialextension.alphabet",
+        "key": "a",
         "when": "editorTextFocus"
       }
     ]
